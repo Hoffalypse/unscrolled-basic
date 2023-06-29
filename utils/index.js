@@ -1,8 +1,9 @@
 import axios from "axios";
 
 export async function generateQuestions(numQuestions, about) {
+ 
   try {
-   
+   console.log(process.env.NEXT_PUBLIC_OPEN_AI_API)
     const num = Number(numQuestions)
    
 
@@ -21,16 +22,11 @@ export async function generateQuestions(numQuestions, about) {
       {
         headers: {
           Authorization:
-            "",
+            process.env.NEXT_PUBLIC_OPEN_AI_API,
           "Content-Type": "application/json",
         },
       }
     );
-
-    
-    // const [questionLine, answersString] = response.data.choices[0].text.split("[");
-    // const question = questionLine.replace(/A: /, '');
-    // const answers = answersString.slice(0, -1).split(", ").map((answer) => answer.replace(/A: |B: |C: |D: |"|\[|\]/g, ''));
 
     return response.data.choices
   } catch (error) {

@@ -1,16 +1,17 @@
-"use client";
-import { useState, useEffect } from "react";
+"use client"
+import { useState } from "react";
 import { generateQuestions } from "@/utils";
-import { RenderQuestions, QuestionForm } from "@/components";
+import { RenderQuestions, QuestionForm, Loader } from "@/components";
 
 export default function Home() {
   const [numQuestions, setNumQuestions] = useState(0);
   const [about, setAbout] = useState("");
   const [questionObj, setQuestionObj] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true)
     // Prepare the data to be sent to the API
     const formData = {
       numQuestions: parseInt(numQuestions),
@@ -39,6 +40,7 @@ export default function Home() {
     // Reset the form inputs after submission
     setNumQuestions(0);
     setAbout("");
+    setLoading(false)
   };
   return (
     <>
@@ -49,6 +51,12 @@ export default function Home() {
         numQuestions={numQuestions}
         about={about}
       />
+      {loading ?  
+      <div className="flex justify-center mt-20">
+      <Loader /> 
+      </div>
+      : ""}
+     
       <div>
         <RenderQuestions questions={questionObj} />
       </div>
