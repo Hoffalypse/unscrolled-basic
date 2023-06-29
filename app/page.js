@@ -1,13 +1,12 @@
-"use client"
-import { useState } from "react";
+"use client";
+import { useState, useEffect } from "react";
 import { generateQuestions } from "@/utils";
+import { RenderQuestions, QuestionForm } from "@/components";
 
 export default function Home() {
-
   const [numQuestions, setNumQuestions] = useState(0);
-  const [about, setAbout] = useState('');
-  const [question, setQuestion] = useState([])
-  const [answers, setAnswers] = useState([])
+  const [about, setAbout] = useState("");
+  const [questionObj, setQuestionObj] = useState({});
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,59 +17,41 @@ export default function Home() {
       about: about,
     };
 
-    //API Call
-   const data =  await generateQuestions(numQuestions, about)
-   for (let i = 0; i < array.length; i++) {
-   
-    const [questionLine, answersString] = data[i].text.split("[");
-    const question = questionLine.replace(/A: /, '');
-    const answers = answersString.slice(0, -1).split(", ").map((answer) => answer.replace(/A: |B: |C: |D: |"|\[|\]/g, ''));
-   }
-    
+    // API Call
+    const data = await generateQuestions(numQuestions, about);
+
+
+    //Get data into proper format 
+    const updatedQuestionObj = data.reduce((acc, item, index) => {
+      const [questionLine, answersString] = item.text.split("[");
+      const question = questionLine.replace(/[\n\r]/g, "");
+      const answers = answersString
+        .slice(0, -1)
+        .split(", ")
+        .map((answer) => answer.replace(/A: |B: |C: |D: |"|\[|\]/g, ""));
+
+      acc[question] = answers;
+      return acc;
+    }, {});
+
+    setQuestionObj(updatedQuestionObj);
 
     // Reset the form inputs after submission
-    console.log(question)
-    console.log('Answers:', answers)
-    
     setNumQuestions(0);
-    setAbout('');
+    setAbout("");
   };
-
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="flex justify-around mt-20">
-      <div className="">
-        <label htmlFor="numQuestions">Auto Create Questions:</label>
-        <br/>
-        <input
-        className="border-2 w-10 pl-3 mr-20 rounded-md ml-2"
-          type="number"
-          id="autoCreateQuestions"
-          value={numQuestions}
-          onChange={(e) => setNumQuestions(e.target.value)}
-        />
-      </div>
+    <>
+      <QuestionForm
+        handleSubmit={handleSubmit}
+        setNumQuestions={setNumQuestions}
+        setAbout={setAbout}
+        numQuestions={numQuestions}
+        about={about}
+      />
       <div>
-        <label htmlFor="about">About:</label>
-        <br/>
-        <textarea
-        className="border-2 pl-3 mr-20 rounded-md"
-          id="about"
-          rows={3}
-          value={about}
-          onChange={(e) => setAbout(e.target.value)}
-        />
+        <RenderQuestions questions={questionObj} />
       </div>
-      </div>
-      <div className="flex justify-center">
-      <button 
-      type="submit"
-      className="bg-green-500 border-2 border-black px-1 mt-3 flex justify-center rounded-md"
-      >
-        Submit
-        </button>
-        </div>
-    </form>
+    </>
   );
-};
-
+}

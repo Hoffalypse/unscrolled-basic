@@ -9,7 +9,7 @@ export async function generateQuestions(numQuestions, about) {
     const response = await axios.post(
       "https://api.openai.com/v1/engines/text-davinci-003/completions",
       {
-        prompt: `give me a question about ${about} with 4 answers returned in an array the first returned answer is the corect one and the last 3 wrong answers`,
+        prompt: `give me a question about ${about} with 4 answers returned in an array the first returned answer is the corect one and the last 3 wrong answers, answer in the format of Question [answer 1, answer 2, answer 3, answer 4] with no additional characters`,
         max_tokens: 100,
         n: num,
         stop: null,

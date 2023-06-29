@@ -25,3 +25,11 @@ body {
     )
     rgb(var(--background-start-rgb));
 } */
+.answers {
+  border: 2px solid black;
+  padding: 5px;
+  background-color: rgb(178, 242, 242);
+  border-radius: 7px;
+  text-align: center;
+  width: 130px;
+}
