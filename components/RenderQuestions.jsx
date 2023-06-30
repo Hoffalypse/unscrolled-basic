@@ -46,13 +46,13 @@ const RenderQuestions = ({ questions }) => {
   };
 
   return (
-    <div className="flex flex-col justify-center pt-10 lg:flex-row">
-      {/* Column 1 */}
-      <div className="w-full lg:w-1/2 pr-4">
+    <div className="flex flex-col pt-10 lg:flex-row bg-slate-200">
+      
+      <div className="w-full lg:w-[50%] flex flex-col items-center ">
         {editedQuestions.map(({ question, answers }, questionIndex) => (
           <div className="mb-5 ml-5" key={questionIndex}>
-            <div className="flex">
-            <button onClick={() => handleSaveQuestion(questionIndex)}>
+            <div className="flex ">
+            <button className="mr-1"onClick={() => handleSaveQuestion(questionIndex)}>
                 <Image src="/download.png" alt="download" width={30} height={30} />
               </button>
               <input
@@ -84,10 +84,10 @@ const RenderQuestions = ({ questions }) => {
         ))}
       </div>
 
-      {/* Column 2 */}
-      <div className="w-full lg:w-1/5 mt-4 lg:mt-0">
+      {savedQuestions.length > 0 ? (
+      <div className="w-full lg:w-[50%] mt-4 lg:mt-0 bg-slate-400 flex justify-center rounded-xl">
         <SavedQuestions savedQuestions={savedQuestions} />
-      </div>
+      </div>): ""}
     </div>
   );
 };
