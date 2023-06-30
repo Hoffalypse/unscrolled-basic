@@ -47,21 +47,27 @@ const RenderQuestions = ({ questions }) => {
 
   return (
     <div className="flex flex-col mt-10 lg:flex-row  ">
-      
       <div className="w-full lg:w-[50%] flex flex-col items-center bg-slate-200 h-[100vh] rounded-xl">
-        <h2 className="text-2xl font-bold my-4">Select Your Questions:</h2>
+        <h2 className="text-2xl font-bold my-4">Edit/Select Your Questions:</h2>
         {editedQuestions.map(({ question, answers }, questionIndex) => (
           <div className="mb-5 ml-5 pt-4" key={questionIndex}>
             <div className="flex ">
-            <button className="mr-1"onClick={() => handleSaveQuestion(questionIndex)}>
-                <Image src="/download.png" alt="download" width={30} height={30} />
+              <button
+                className="mr-1"
+                onClick={() => handleSaveQuestion(questionIndex)}
+              >
+                <Image
+                  src="/download.png"
+                  alt="download"
+                  width={30}
+                  height={30}
+                />
               </button>
               <input
                 className="text-xl mb-2 px-2 py-1 border-none w-full border-gray-300 rounded-md"
                 value={question}
                 onChange={(e) => handleQuestionChange(e, questionIndex)}
               />
-              
             </div>
             <div className="flex">
               {answers.map((answer, answerIndex) => (
@@ -84,12 +90,18 @@ const RenderQuestions = ({ questions }) => {
           </div>
         ))}
       </div>
-      <div className="w-full lg:w-[50%] mt-4 lg:mt-0 bg-slate-400 flex justify-center rounded-xl">
-      <h2 className="text-2xl font-bold my-4">Saved Questions:</h2>
-      {savedQuestions.length > 0 ? (
-      
-        <SavedQuestions savedQuestions={savedQuestions} />
-        ): ""}
+      <div className="w-full lg:w-[50%] mt-4 lg:mt-0 bg-slate-300 rounded-xl">
+        <h2 className="text-2xl font-bold my-4 text-center ">
+          Saved Questions:
+        </h2>
+
+        {savedQuestions.length > 0 ? (
+          <div className="flex justify-center">
+            <SavedQuestions savedQuestions={savedQuestions} setSavedQuestions={setSavedQuestions} />
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
