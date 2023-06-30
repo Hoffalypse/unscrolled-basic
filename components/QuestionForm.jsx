@@ -46,7 +46,7 @@ const QuestionForm = ({
         <div className="flex justify-center mt-10">
           <button
             type="submit"
-            className="bg-green-500 border-2 border-black p-2 flex justify-center rounded-md mt-[-20px]"
+            className="bg-green-400 border-2 border-black p-2 flex justify-center rounded-md mt-[-20px]"
           >
             Generate
           </button>
