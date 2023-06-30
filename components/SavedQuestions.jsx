@@ -7,7 +7,7 @@ const SavedQuestions = ({ savedQuestions }) => {
      
         <div >
           <div>
-            <h2 className="text-2xl font-bold mb-4">Saved Questions:</h2>
+            
             <ul>
               {savedQuestions.map((savedQuestion, index) => (
                 <div className="mt-2 border-slate-500">
