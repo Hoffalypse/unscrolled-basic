@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react";
 import { generateQuestions } from "@/utils";
-import { RenderQuestions, QuestionForm, Loader } from "@/components";
+import { RenderQuestions, AIQuestionForm, ManualQuestion, Loader } from "@/components";
 
 export default function Home() {
   const [numQuestions, setNumQuestions] = useState(0);
@@ -11,18 +11,18 @@ export default function Home() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true)
+    setLoading(true);
+  
     // Prepare the data to be sent to the API
     const formData = {
       numQuestions: parseInt(numQuestions),
       about: about,
     };
-
+  
     // API Call
     const data = await generateQuestions(numQuestions, about);
-
-
-    //Get data into proper format 
+  
+    // Get data into the proper format
     const updatedQuestionObj = data.reduce((acc, item, index) => {
       const [questionLine, answersString] = item.text.split("[");
       const question = questionLine.replace(/[\n\r]/g, "");
@@ -30,33 +30,52 @@ export default function Home() {
         .slice(0, -1)
         .split(", ")
         .map((answer) => answer.replace(/A: |B: |C: |D: |"|\[|\]/g, ""));
-
+  
       acc[question] = answers;
       return acc;
     }, {});
-
-    setQuestionObj(updatedQuestionObj);
-
+  
+    setQuestionObj((prevQuestionObj) => ({
+      ...prevQuestionObj,
+      ...updatedQuestionObj,
+    }));
+  
     // Reset the form inputs after submission
     setNumQuestions(0);
     setAbout("");
-    setLoading(false)
+    setLoading(false);
   };
+
+  const handleManualQuestionSubmit = (manualQuestion) => {
+    setQuestionObj((prevQuestionObj) => ({
+      ...prevQuestionObj,
+      [manualQuestion.question]: manualQuestion.answers,
+    }));
+  };
+
   return (
     <>
-      <QuestionForm
-        handleSubmit={handleSubmit}
-        setNumQuestions={setNumQuestions}
-        setAbout={setAbout}
-        numQuestions={numQuestions}
-        about={about}
-      />
-      {loading ?  
-      <div className="flex justify-center mt-20">
-      <Loader /> 
+      <div className="flex flex-col lg:flex-row">
+        <div className="w-full lg:w-1/2">
+          <ManualQuestion handleManualQuestionSubmit={handleManualQuestionSubmit} />
+        </div>
+        <div className="w-full lg:w-1/2">
+          <AIQuestionForm
+            handleSubmit={handleSubmit}
+            setNumQuestions={setNumQuestions}
+            setAbout={setAbout}
+            numQuestions={numQuestions}
+            about={about}
+          />
+        </div>
       </div>
-      : ""}
-     
+      {loading ? (
+        <div className="flex justify-center mt-20">
+          <Loader />
+        </div>
+      ) : (
+        ""
+      )}
       <div>
         <RenderQuestions questions={questionObj} />
       </div>

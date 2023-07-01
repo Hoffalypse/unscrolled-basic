@@ -46,7 +46,7 @@ const RenderQuestions = ({ questions }) => {
   };
 
   return (
-    <div className="flex flex-col mt-10 lg:flex-row  ">
+    <div className="flex flex-col lg:flex-row  ">
       <div className="w-full lg:w-[50%] flex flex-col items-center bg-slate-200 h-[100vh] rounded-xl">
         <h2 className="text-2xl font-bold my-4">Edit/Select Your Questions:</h2>
         {editedQuestions.map(({ question, answers }, questionIndex) => (
@@ -64,7 +64,7 @@ const RenderQuestions = ({ questions }) => {
                 />
               </button>
               <input
-                className="text-xl mb-2 px-2 py-1 border-none w-full border-gray-300 rounded-md"
+                className="text-xl mb-2 px-2 py-1 border-none w-full border-gray-300 rounded-md bg-slate-200"
                 value={question}
                 onChange={(e) => handleQuestionChange(e, questionIndex)}
               />

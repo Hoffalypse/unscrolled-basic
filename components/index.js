@@ -1,11 +1,13 @@
 import RenderQuestions from "./RenderQuestions";
-import QuestionForm from "./QuestionForm";
+import AIQuestionForm from "./AIQuestionForm";
 import Loader from "./Loader";
 import SavedQuestions from "./SavedQuestions";
+import ManualQuestion from "./ManualQuestion"
 
 export {
     RenderQuestions,
-    QuestionForm,
+    AIQuestionForm,
     Loader,
     SavedQuestions,
+    ManualQuestion,
 }

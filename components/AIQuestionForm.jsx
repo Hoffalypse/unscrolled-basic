@@ -8,11 +8,13 @@ const QuestionForm = ({
   setAbout,
 }) => {
   return (
-    <>
+    <div className="flex flex-col items-center justify-center bg-slate-200 h-[50vh] rounded-xl ">
+    <h2 className="italic text-[30px] text-center mt-2">Generate With AI</h2>
+    <br/>
       <form onSubmit={handleSubmit}>
-        <div className="flex justify-center mt-10">
-          <div className="flex flex-col items-center">
-            <label className="text-[30px]" htmlFor="numQuestions">
+        <div className="flex justify-center items-center">
+          <div className=" items-center">
+            <label className="text-[20px]" htmlFor="numQuestions">
               How Many Questions:
             </label>
             <input
@@ -29,7 +31,7 @@ const QuestionForm = ({
 
         <div className="flex justify-center mt-10">
           <div className="flex flex-col items-center">
-            <label className="text-[30px]  mt-[-20px]" htmlFor="about">
+            <label className="text-[20px]  mt-[-20px]" htmlFor="about">
               Subject Matter:
             </label>
             <textarea
@@ -52,7 +54,7 @@ const QuestionForm = ({
           </button>
         </div>
       </form>
-    </>
+    </div>
   );
 };
 
