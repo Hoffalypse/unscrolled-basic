@@ -18,7 +18,7 @@ const QuestionForm = ({
               How Many Questions:
             </label>
             <input
-              className="border-2 w-[45px]  rounded-md ml-2 pl-[12px] text-[25px]"
+              className="border-2 w-[45px]  rounded-md ml-2 pl-[15px] text-[25px] inp shadow-md"
               type="number"
               id="autoQuestions"
               max={10}
@@ -35,7 +35,7 @@ const QuestionForm = ({
               Subject Matter:
             </label>
             <textarea
-              className="border-2 pl-3 rounded-lg text-xl"
+              className="border-2 pl-3 rounded-lg text-xl inp shadow-md"
               id="about"
               rows={3}
               cols={40}

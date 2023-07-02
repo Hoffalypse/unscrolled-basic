@@ -70,7 +70,7 @@ export default function Home() {
         </div>
       </div>
       {loading ? (
-        <div className="flex justify-center mt-20">
+        <div className="flex justify-center">
           <Loader />
         </div>
       ) : (
