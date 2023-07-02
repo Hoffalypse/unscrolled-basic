@@ -68,7 +68,7 @@ const ManualQuestion = ({ handleManualQuestionSubmit }) => {
 
       <button
         onClick={submitQuestion}
-        className="bg-green-400 border-2 border-black px-4 py-[7px] flex justify-center rounded-md"
+        className="bg-blue-400 border-2 border-blue-400 text-white px-4 py-[7px] flex justify-center rounded-md shadow-md"
       >
         Submit
       </button>
