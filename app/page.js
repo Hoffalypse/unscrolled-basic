@@ -1,4 +1,4 @@
-import { Header, QuestionsHome } from "@/components";
+import { Header, Homepage, } from "@/components";
 
 
 export default function Home() {
@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
     <Header />
-    <QuestionsHome/>
+    <Homepage/>
     </>
   );
 }

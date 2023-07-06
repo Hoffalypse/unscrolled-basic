@@ -5,6 +5,7 @@ import SavedQuestions from "./SavedQuestions";
 import ManualQuestion from "./ManualQuestion"
 import QuestionsHome from "./QuestionsHome";
 import Header from "./Header";
+import Homepage from "./Homepage";
 
 export {
     RenderQuestions,
@@ -14,4 +15,5 @@ export {
     ManualQuestion,
     QuestionsHome,
     Header,
+    Homepage,
 }
