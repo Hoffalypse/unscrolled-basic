@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from "react";
 
 const ManualQuestion = ({ handleManualQuestionSubmit }) => {
@@ -46,7 +47,7 @@ const ManualQuestion = ({ handleManualQuestionSubmit }) => {
         />
       </div>
       <div className="mb-4">
-        <label className="text-[20px]"htmlFor="answer2">Answer 2(Wrong):</label>
+        <label className="text-[20px]"htmlFor="answer2">Answer 2(Wrong): </label>
         <input
           type="text"
           id="answer2"
@@ -56,7 +57,7 @@ const ManualQuestion = ({ handleManualQuestionSubmit }) => {
         />
       </div>
       <div className="mb-4">
-        <label className="text-[20px]"htmlFor="answer3">Answer 3(Wrong):</label>
+        <label className="text-[20px]"htmlFor="answer3">Answer 3(Wrong): </label>
         <input
           type="text"
           id="answer3"
