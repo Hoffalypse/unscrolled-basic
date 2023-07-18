@@ -1,9 +1,11 @@
 import CarouselOpen from "./CarouselOpen";
-import HeroText from "./HeroText";
+import TopText from "./TopText";
+import Hero from "./Hero";
 
 export {
     CarouselOpen,
-    HeroText,
-    
+    TopText,
+    Hero,
+
 
 }

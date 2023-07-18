@@ -1,41 +1,48 @@
 "use client";
 import React from "react";
-import Image from "react-bootstrap";
-import { CarouselOpen, HeroText } from "./Landing";
+import {Image, Row, Col } from "react-bootstrap";
+import { CarouselOpen, TopText, Hero } from "./Landing";
 
 const Homepage = () => {
   return (
     <>
       <CarouselOpen />
-      <HeroText />
-      <div className="bg-[#FBDCA0] bg-hero-pattern ">
-        <br />
-        <div className="mt-5 flex justify-center">
-          <img src="Hero.png" />
-        </div>
-        <div className="text-center">
-          <h1 className="text-[#CB1F13] text-center font-alegreya mt-5 text-[60px] font-bold">
-            Uncover Secrets
-          </h1>
-          <p className="mx-5 md:px-32">
-            Frances discovers that the family he thought he knew, was never his
-            at all. He finds a scroll that sets him on a path self-discovery to
-            find out who he truly is and where he comes from. Armed with nothing
-            but perseverance, he sets out with his trusty bird sidekick, Wiser,
-            to uncover clues left by his family and find the truth.
-          </p>
-          <br />
-          <br />
-          <p className="mx-5 md:px-32">
-            You will be Frances. You will go on an amazing journey meeting fun
-            characters, traveling the world, and collecting hidden treasures.
-          </p>
-          <div className="ml-[55%] mt-[-65px]">
-          <img src="positive-humor.png"/>
+      <TopText />
+      <Hero />
+      <div className="mt-10">
+        <Row className="pt-10 text-center">
+          <Col xs={6}>
+          <div className="">
+          <h2 className="text-center text-[50px] mt-5 w-4/5 ml-20">It will be up to you to decide who to trust</h2>
+          <div className="flex justify-end mt-[-30px]">
+          <img src="concretize-values.png" className="w-2/5"/>
           </div>
-          <img src="3d-mansion.png" className="w-full"/>
-        </div>
+          </div>
+          </Col>
+          <Col>
+          <div className="flex justify-center">
+          <img src="gamecap-1.png"/>
+          </div>
+          </Col>
+        </Row>
+        <Row className="pt-10 text-center">
+        <Col>
+          <div className="flex justify-center">
+          <img src="gamecap-2.png"/>
+          </div>
+          </Col>
+          <Col >
+          <div className="">
+          <h2 className="text-center text-[50px] mt-5 w-4/5 ml-20">It will be up to you to decide which way to go</h2>
+          <div className=" mt-[-30px]">
+          <img src="build-decision.png" className="w-2/5"/>
+          </div>
+          </div>
+          </Col>
+          
+        </Row>
       </div>
+
  
     </>
   );
