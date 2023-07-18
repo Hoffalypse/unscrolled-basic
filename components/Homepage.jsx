@@ -1,56 +1,43 @@
-"use client"
-import React from 'react'
-import Image from 'react-bootstrap';
-import { Carousel } from 'react-bootstrap';
+"use client";
+import React from "react";
+import Image from "react-bootstrap";
+import { CarouselOpen, HeroText } from "./Landing";
 
 const Homepage = () => {
   return (
     <>
-    <Carousel>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="Demo-landing-slide.png"
-          alt="First slide"
-        />
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="coming-soon.jpg"
-          alt="Second slide"
-        />
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="coming-soon.jpg"
-          alt="Third slide"
-        />
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="coming-soon.jpg"
-          alt="Fourth slide"
-        />
-      </Carousel.Item>
-    </Carousel>
-    <div>
-      <h1 className='text-[#CB1F13] text-center pt-[96px] pb-[32px] font-alegreya'>A Fountain Explodes... A Scroll Discovered... An Adventure Begins </h1>
-      <p className='text-center'>Set in Spanish Inquisition Spain, Unscrolled takes you ona journey of self discovery. 
-        
-        <br/> You'll travel the world, play action games, and make important decisions. </p>
-        <div className='ml-[55%] mt-[-65px]'>
-        <img src='critical-thinking.png' />
+      <CarouselOpen />
+      <HeroText />
+      <div className="bg-[#FEB119] ">
+        <br />
+        <div className="mt-5 flex justify-center">
+          <img src="Hero.png" />
         </div>
-        <div>
-          
+        <div className="text-center">
+          <h1 className="text-[#CB1F13] text-center font-alegreya mt-5 text-[60px] font-bold">
+            Uncover Secrets
+          </h1>
+          <p className="mx-52 ">
+            Frances discovers that the family he thought he knew, was never his
+            at all. He finds a scroll that sets him on a path self-discovery to
+            find out who he truly is and where he comes from. Armed with nothing
+            but perseverance, he sets out with his trusty bird sidekick, Wiser,
+            to uncover clues left by his family and find the truth.
+          </p>
+          <br />
+          <br />
+          <p>
+            You will be Frances. You will go on an amazing journey meeting fun
+            characters, traveling the world, and collecting hidden treasures.
+          </p>
+          <div className="ml-[55%] mt-[-65px]">
+          <img src="positive-humor.png"/>
+          </div>
+          <img src="3d-mansion.png" className="w-full"/>
         </div>
-    </div>
- 
+      </div>
     </>
   );
-}
+};
 
-export default Homepage
+export default Homepage;
