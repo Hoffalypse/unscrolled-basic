@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
 const Hero = () => {
   return (
     <div>
-            <div className="bg-[#FBDCA0] bg-hero-pattern ">
+      <div className="bg-[#FBDCA0] bg-hero-pattern ">
         <br />
         <div className="mt-5 flex justify-center">
           <img src="Hero.png" />
@@ -26,13 +26,13 @@ const Hero = () => {
             characters, traveling the world, and collecting hidden treasures.
           </p>
           <div className="ml-[55%] mt-[-65px]">
-          <img src="positive-humor.png"/>
+            <img src="positive-humor.png" />
           </div>
-          <img src="3d-mansion.png" className="w-full"/>
+          <img src="3d-mansion.png" className="w-full" />
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;
