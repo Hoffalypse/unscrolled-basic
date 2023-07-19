@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'hero-pattern': "url('/bkg-img.png')",
+        'island-bk': "url('/island.png')",
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         
         'gradient-conic':
