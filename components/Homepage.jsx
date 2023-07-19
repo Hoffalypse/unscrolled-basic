@@ -1,8 +1,14 @@
 "use client";
 import React from "react";
-import {Image, Row, Col } from "react-bootstrap";
-import { CarouselOpen, TopText, Hero, UpToYou, Features } from "./Landing";
-import { kids, parents } from "@/constants";
+import { Image, Row, Col } from "react-bootstrap";
+import {
+  CarouselOpen,
+  TopText,
+  Hero,
+  UpToYou,
+  Features,
+  Reviews,
+} from "./Landing";
 
 const Homepage = () => {
   return (
@@ -12,53 +18,41 @@ const Homepage = () => {
       <Hero />
       <UpToYou />
       <div>
-      {/* <div className=" bg-island-bk w-full">
+        {/* <div className=" bg-island-bk w-full">
         
         <img src="island.png" className="w-full"/>
         <img src="apple.png" className="gap-3" />
           <img src="google-play.png" />
       </div> */}
       </div>
-      <Features/>
+      <Features />
+      <Reviews />
+      {/* <div className="owl mt-14">
+        <div className="  ">
+          <div className=" relative">
+            <p className="text-white text-lg">
+              Download the game and start your journey now. A vast, open world
+              of endless possibility awaits. Join now and tell your story!
+            </p>
+          </div>
+        </div>
+      </div> */}
+<div class="owl my-14 rounded mx-20">
+  <div class="relative bg-cover bg-center owl flex flex-col md:flex-row">
+    <div class="w-full md:w-1/2 h-full flex items-center pl-10">
+      <p class="text-white text-lg">
+        Download the game and start your journey now. A vast, open world of endless possibility awaits. Join now and tell your story!
+      </p>
+    </div>
+    <div class="w-full md:w-1/2 h-full gap-3 flex flex-col md:flex-row items-center justify-end pr-10 mt-4 md:mt-0">
+      <img src="apple.png" alt="apple link" class="w-48 mb-3 md:mb-0 md:mr-3"/>
+      <img src="google-play.png" alt="google link" class="w-48"/>
+    </div>
+  </div>
+</div>
 
-      <div className="mt-12">
-      <h1 className="pt-12 text-[#CB1F13] pl-40 mb-5 text-[60px]">What Kids Say About Unscrolled:</h1>
-      </div>
-      <div>
-        <Row className="h-32">
-        {kids.map((kid) => (
-          <Col className="flex justify-center place-content-evenly h-32 ">
-        
-          <div className="bg-[#FEB119] rounded-lg w-3/5">
-          <div className="flex justify-center mt-[-20px]">
-            <img src={kid.photo} className="w-12 h-12"/>
-            </div>
-            <p className="text-center mt-8">{kid.comment}</p>
-          </div>
-          </Col>
-        ))}
-        </Row>
-      </div>
-      <div className="mt-12">
-      <h1 className="pt-12 text-[#CB1F13] pl-40 mb-5 text-[60px]">What Parents Say About Unscrolled:</h1>
-      </div>
-      <div>
-        <Row className="h-32">
-        {parents.map((parent) => (
-          <Col className="flex justify-center place-content-evenly h-32 ">
-        
-          <div className="bg-[#FEB119] rounded-lg w-3/5">
-          <div className="flex justify-center mt-[-20px]">
-            <img src={parent.photo} className="w-12 h-12"/>
-            </div>
-            <p className="text-center mt-8">{parent.comment}</p>
-          </div>
-          </Col>
-        ))}
-        </Row>
-      </div>
-      
- 
+
+
     </>
   );
 };

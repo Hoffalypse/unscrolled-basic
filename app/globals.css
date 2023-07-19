@@ -19,8 +19,14 @@ textarea { resize: none; }
  
   outline: none;
 }
-.font-fam{
-  font-family:something;
+.owl {
+  background-image: url('/owl-footer.png');
+  background-repeat: no-repeat;
+  height: 30vh;
+  border-radius: 20px;
+
+
 }
+
 
 
